@@ -1,25 +1,27 @@
-
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Bookshelf</title>
+  <link rel='stylesheet' href='styles/base.css'>
 </head>
+
 <body>
-    
-<form action='/search' method="GET" >
-<label>Enter a title or author
-<input type='text' name='search'>
-</label>
-<label>TITLE
-<input type='radio' name='search' value="title"> 
-</label>
-<label>AUTHOR
-    <input type='radio' name='search' value="author"> 
+
+  <form action='/search' method="GET">
+    <label>Enter a title or author
+      <input type='text' name='search'>
+    </label>
+    <label>TITLE
+      <input type='radio' name='search' value="title">
+    </label>
+    <label>AUTHOR
+      <input type='radio' name='search' value="author">
     </label>
 
     <button>Search the Google Books API</button>
-</form>
+  </form>
 
 </body>
+
 </html>
