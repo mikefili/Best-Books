@@ -1,6 +1,6 @@
 const express=require('express');
 const app=express();
-const cors=require('cors');
+
 const PORT=process.env.PORT||3000;
 const superagent=require('superagent');
 app.use(express.json());
@@ -34,13 +34,12 @@ app.post('/search',getsearch);
 
 function getsearch(req,res){
   let arr=[];
-  const titleURL=`https://www.googleapis.com/books/v1/volumes?q=${req.query.searchType}:${req.query.search}&fields=items(volumeInfo/authors, volumeInfo/title, volumeInfo/industryIdentifiers/identifier, volumeInfo/description, volumeInfo/imageLinks/thumbnail`;
-
-
-return superagent(titleURL)
+  const titleURL=`https://www.googleapis.com/books/v1/volumes?q=intitle:${req.body.searchkey}`;
+  console.log(req.body);
+return superagent.get(titleURL)
 .then(data=>{
   
-   data.body.items.forEach(book=>{
+data.body.items.forEach(book=>{
 
   let bookobj = {
     title: book.volumeInfo.title,
@@ -53,7 +52,7 @@ return superagent(titleURL)
   arr.push(bookobj);
 
 });
-res.render('pages/shows',{books:arr});
+res.render('../views/pages/show',{data:arr});
 })
 
 
