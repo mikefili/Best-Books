@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>SHOW LIST</title>
+</head>
+<body>
+    <ul>
+       <% booklist.forEach(data=>{ %> 
+    
+    <li>
+        <p>Title: <%=data.title %></p>
+        <p>Authors: <%=data.authors %></p>
+        <p>Publisher: <%=data.publisher %></p>
+        <p>Description: <%=data.description %></p>
+    </li>
+  <%  }) %>
+    </ul>
+</body>
+</html>
