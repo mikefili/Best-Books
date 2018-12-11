@@ -5,15 +5,19 @@
 </head>
 <body>
     <ul>
-       <% booklist.forEach(data=>{ %> 
+       <% books.forEach(book=>{ %> 
     
     <li>
-        <p>Title: <%=data.title %></p>
-        <p>Authors: <%=data.authors %></p>
-        <p>Publisher: <%=data.publisher %></p>
-        <p>Description: <%=data.description %></p>
+        <p>Title: <%=book.volumeInfo.title %></p>
+        <p>Authors: <%=book.volumeInfo.authors %></p>
+        <p>Description: <%=book.volumeInfo.description %></p>
     </li>
   <%  }) %>
     </ul>
+
+
+
+
+
 </body>
 </html>

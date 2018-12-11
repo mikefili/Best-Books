@@ -3,8 +3,11 @@ const app=express();
 const cors=require('cors');
 const PORT=process.env.PORT||3000;
 const superagent=require('superagent');
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
+
+
 
 require('dotenv').config();
 app.set('view engine','ejs');
@@ -28,41 +31,34 @@ app.get('/',(req,res)=>{
 
 app.post('/search',getsearch);
  
+
 function getsearch(req,res){
-
-let handler= req.body;
-
-Book.getBookinfo(handler)
-.then(res.render('/searches/show',{booklist:list}));
+  let arr=[];
+  const titleURL=`https://www.googleapis.com/books/v1/volumes?q=${req.query.searchType}:${req.query.search}&fields=items(volumeInfo/authors, volumeInfo/title, volumeInfo/industryIdentifiers/identifier, volumeInfo/description, volumeInfo/imageLinks/thumbnail`;
 
 
-}
-
-
-function Book(query,data){
-this.search_query=query;
-this.tile=data.volumeInfo.title;
-this.authors=data.volumeInfo.authors;
-this.publisher=data.volumeInfo.publisher;
-this.description=data.volumeInfo.description;
-
-}
-
-
-
-Book.getBookinfo=(query)=>{
-
-const _URL=`https://www.googleapis.com/books/v1/volumes?q=${query}`;
-return superagent.get(_URL)
+return superagent(titleURL)
 .then(data=>{
+  
+   data.body.items.forEach(book=>{
 
-let book=new Book(query,data.body.items);
-return book;
+  let bookobj = {
+    title: book.volumeInfo.title,
+    author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'N/A',
+    description: book.volumeInfo.description,
+    isbn: parseInt(book.volumeInfo.industryIdentifiers[0].identifier),
+    image_url: book.volumeInfo.imageLinks.thumbnail
+  };
 
+  arr.push(bookobj);
+
+});
+res.render('pages/shows',{books:arr});
 })
 
 
-};
+
+}
 
 
 
