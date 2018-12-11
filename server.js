@@ -15,13 +15,13 @@ app.get('/',(req,res)=>{
 });
 
 
-app.get('./views/pages',(req,res)=>{
-  res.render('error');
+app.get('/',(req,res)=>{
+  res.render('../views/pages/error');
 });
 
 
-app.get('./views/pages/searches',(req,res)=>{
-  res.render('show');
+app.get('/',(req,res)=>{
+  res.render('../views/pages/searches/show');
 });
 
 
