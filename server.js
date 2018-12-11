@@ -41,15 +41,15 @@ return superagent.get(titleURL)
   
 data.body.items.forEach(book=>{
 
-  let bookobj = {
+  let obj = {
     title: book.volumeInfo.title,
-    author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'N/A',
+    author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No Author',
     description: book.volumeInfo.description,
     isbn: parseInt(book.volumeInfo.industryIdentifiers[0].identifier),
     image_url: book.volumeInfo.imageLinks.thumbnail
   };
 
-  arr.push(bookobj);
+  arr.push(obj);
 
 });
 res.render('../views/pages/show',{data:arr});
