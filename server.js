@@ -10,17 +10,17 @@ app.use(express.static('./public'));
 
 app.set('view engine','ejs');
 
-app.get('/views/pages',(req,res)=>{
-  res.render('index');
+app.get('/',(req,res)=>{
+  res.render('../views/pages/index');
 });
 
 
-app.get('/views/pages',(req,res)=>{
+app.get('./views/pages',(req,res)=>{
   res.render('error');
 });
 
 
-app.get('/views/pages/searches',(req,res)=>{
+app.get('./views/pages/searches',(req,res)=>{
   res.render('show');
 });
 
