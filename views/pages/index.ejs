@@ -3,12 +3,20 @@
 
 <head>
   <title>Bookshelf</title>
+  <link rel='stylesheet' href='styles/reset.css'>
   <link rel='stylesheet' href='styles/base.css'>
 </head>
 
 <body>
+  <header>
+    <h1>Best Books!</h1>
+    <img src="/styles/images/hamburger-transparent.png" id="hamb">
+  </header>
 
   <form action='/search' method="POST">
+    <div id="instruction">
+      Search by Title or Author
+      </div>
     <label>Enter a title or author
       <input type='text' name='search'>
     </label>
