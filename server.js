@@ -24,11 +24,6 @@ app.get('/',(req,res)=>{
 //   res.render('../views/pages/searches/show',{booklist:list});
 // });
 
-// app.post('/search', (req, res) => {
-//   console.log('my search body', req.body);
-//   res.sendFile('../views/pages/searches/show',{booklist:list});
-// })
-
 app.post('/search',getsearch);
  
 
