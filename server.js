@@ -29,10 +29,6 @@ app.get('/error',(req,res)=>{
 });
 
 
-// app.get('/',(req,res)=>{
-//   res.render('../views/pages/searches/show',{booklist:list});
-// });
-
 //get all books from db
 
 app.get('/books',getbooks);
@@ -63,7 +59,24 @@ function getbookinfo(req, res) {
 
 
 
-app.post('/search',getsearch);
+// app.get('/books/:id',editbookinfo);
+// function editbookinfo(req, res){
+//     let SQL = 'UPDATE books SET title=$1, author=$2, isbn=$3, image_url=$4, description=$5 WHERE id=$6';
+//     let values = [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, req.params.id];
+//     client.query(SQL, values, ( data) => {
+//       res.redirect(`/books/${req.params.id}`);
+//     });
+//   }
+
+
+
+
+app.get('/search',(req,res)=>{
+  res.render('../views/pages/search');
+});
+
+
+app.post('/searchapi',getsearch);
  
 function getsearch(req,res){
   let arr=[];
@@ -85,7 +98,7 @@ data.body.items.forEach(book=>{
   arr.push(obj);
 
 });
-res.render('../views/pages/searches/show',{data:arr});
+res.render('../views/pages/books/show',{data:arr});
 })
 
 
