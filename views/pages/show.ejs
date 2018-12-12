@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
- <title>SHOW LIST</title>
-</head>
-<body>
+  <head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Best Books!</h1>
+      <a href="/hello"><img src="/styles/images/hamburger-transparent.png" id="hamb"/></a>
+    </header>
+    <div class="instruction">Search Results</div>
     <ul>
-       <% data.forEach(book=>{ %> 
-    
-    <li>
-        <p>Title is: <%=book.title %></p> 
+      <% data.forEach(book=>{ %>
+
+      <li>
+        <p>Title is: <%=book.title %></p>
         <p>Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
         <p>Description is: <%=book.description %></p>
-        <img src="<%=book.image_url%>" alt="" class="logo">
-    </li>
-  <%  }) %>
+        <img src="<%=book.image_url%>" alt="" class="logo" />
+      </li>
+      <% }) %>
     </ul>
-
-
-</body>
+  </body>
 </html>
