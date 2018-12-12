@@ -76,7 +76,7 @@ app.get('/search',(req,res)=>{
 });
 
 
-app.post('/search',getsearch);
+app.post('/searchapi',getsearch);
  
 function getsearch(req,res){
   let arr=[];
@@ -98,7 +98,7 @@ data.body.items.forEach(book=>{
   arr.push(obj);
 
 });
-res.render('../views/pages/searches/show',{data:arr});
+res.render('../views/pages/books/show',{data:arr});
 })
 
 

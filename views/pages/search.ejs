@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <%- include('.././layout/head') %>
-  <body>
 
-   
-    <div class="instruction">Search Results</div>
-    <ul>
-      <% bookshelf.forEach(book=>{ %>
-      <li>
-        <img src="<%=book.image_url%>" alt="" class="logo" />
-        <p>Title is: <%=book.title %></p>
-        <p>Author is: <%=book.author %></p>
-        <p>Isbn is: <%=book.isbn %></p>
-        <p>Description is: <%=book.description %></p>
-      </li>
-      <% }) %>
-    
-  
-    </ul>
-  
-  </body>
+<head>
+  <title>Bookshelf</title>
+  <link rel='stylesheet' href='styles/reset.css'>
+  <link rel='stylesheet' href='styles/base.css'>
+</head>
+
+<body>
+  <header>
+    <h1>Best Books!</h1>
+    <img src="/styles/images/hamburger-transparent.png" id="hamb">
+  </header>
+
+  <form action='/searchapi' method="POST">
+    <div id="instruction">
+      Search by Title or Author
+      </div>
+    <label>Enter a title or author
+      <input type='text' name='searchkey'>
+    </label>
+    <label>TITLE
+      <input type='radio' name='search' value="title">
+    </label>
+    <label>AUTHOR
+      <input type='radio' name='search' value="author">
+    </label>
+
+    <button>Search the Google Books API</button>
+  </form>
+
+</body>
+
 </html>
