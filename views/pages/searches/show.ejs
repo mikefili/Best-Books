@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../.././layout/head') %>
+  <body>
+    <%- include('../.././layout/header') %>
+    <div class="instruction">Search Results</div>
+    <ul>
+        <% data.forEach(book=>{ %>
+          <li>
+            <div class="container-xl">
+              <img src="<%=book.image_url%>" alt="" class="logo" />
+              <p class="title">Title is: <%=book.title %></p>
+              <p class="author"><%=book.author %></p>
+              <p class="ISBN">ISBN: <%=book.isbn %></p>
+              <p class="description"><%=book.description %></p>
+            </div>
+          </li>
+        <% }) %>
+    </ul>
+    <%- include('../.././layout/footer') %>
+  </body>
+</html>
