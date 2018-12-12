@@ -8,11 +8,11 @@
        <% data.forEach(book=>{ %> 
     
     <li>
+        <img src="<%=book.image_url%>" alt="" class="logo">
         <p>Title is: <%=book.title %></p> 
         <p>Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
-        <p>Description is: <%=book.description %></p>
-        <img src="<%=book.image_url%>" alt="" class="logo">
+        <p>Description is: <%=book.description %></p>  
     </li>
   <%  }) %>
     </ul>
