@@ -2,9 +2,8 @@
 <html>
   <%- include('.././layout/head') %>
   <body>
-    <div class="book-button"><a href="/books">Home</a></div>
-    <div class="book-button"><a href="/search">Search From Google Api</a></div>
 
+   
     <div class="instruction">Search Results</div>
     <ul>
       <% bookshelf.forEach(book=>{ %>
@@ -14,15 +13,11 @@
         <p>Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
         <p>Description is: <%=book.description %></p>
-        <div class="book-button"><a href="/books/<%= book.id %>">View Details</a></div>
       </li>
       <% }) %>
     
   
     </ul>
-   
-
-
-
+  
   </body>
 </html>
