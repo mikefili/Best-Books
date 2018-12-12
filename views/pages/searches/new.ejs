@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../layout/head'); %>
+<body>
+
+  <h1>Add New Book</h1>
+  <form method="POST" action="/books">
+   
+    <div class="forms">
+     <label for="title">title:</label>
+     <textarea type="text" id="title" name="title"></textarea>
+     </div>
+  
+
+
+     <div class="forms">
+     <label for="author">author:</label>
+     <textarea type="text" id="author" name="author"></textarea>
+     </div>
+                     
+
+     <div class="forms">
+     <label for="isbn">isbn:</label>
+    <textarea type="number" id="isbn" name="isbn"></textarea>
+    </div>
+                             
+
+     <div class="forms">
+     <label for="image_url">image_url:</label>
+    <textarea type="text" id="image_url" name="image_url"></textarea>
+    </div>
+             
+    <div class="forms">
+      <label for="description">description:</label>
+      <textarea type="text" id="description" name="description"></textarea>
+    </div>
+    <div class="forms">
+      <input type="submit" value="Add Book" />
+    </div>
+  </form>
+</body>
+</html>

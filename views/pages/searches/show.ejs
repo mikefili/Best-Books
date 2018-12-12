@@ -2,21 +2,20 @@
 <html>
   <%- include('../.././layout/head') %>
   <body>
-    <%- include('../.././layout/header') %>
-    <div class="instruction">Search Results</div>
+
+   
     <ul>
-        <% data.forEach(book=>{ %>
-          <li>
-            <div class="container-xl">
-              <img src="<%=book.image_url%>" alt="" class="logo" />
-              <p class="title">Title is: <%=book.title %></p>
-              <p class="author"><%=book.author %></p>
-              <p class="ISBN">ISBN: <%=book.isbn %></p>
-              <p class="description"><%=book.description %></p>
-            </div>
-          </li>
-        <% }) %>
+    
+      <li>
+        <img src="<%=data.image_url%>" alt="" class="logo" />
+        <p>Title is: <%=data.title %></p>
+        <p>Author is: <%=data.author %></p>
+        <p>Isbn is: <%=data.isbn %></p>
+        <p>Description is: <%=data.description %></p>
+      </li>
+ 
     </ul>
-    <%- include('../.././layout/footer') %>
+   
+
   </body>
 </html>
