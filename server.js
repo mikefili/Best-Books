@@ -6,27 +6,65 @@ const superagent=require('superagent');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
-
-
-
 require('dotenv').config();
 app.set('view engine','ejs');
 
-app.get('/hello',(req,res)=>{
-  res.render('../views/pages/index');
-});
+
+
+const pg = require('pg');
+const dbaddress = process.env.DATABASE_URL;
+const client = new pg.Client(dbaddress);
+client.connect();
+client.on('error', err => console.log(err));
+
+
 
 app.get('/',(req,res)=>{
+  // res.render('../views/pages/index');
+  res.redirect('/books');
+});
+
+app.get('/error',(req,res)=>{
   res.render('../views/pages/error');
 });
+
 
 // app.get('/',(req,res)=>{
 //   res.render('../views/pages/searches/show',{booklist:list});
 // });
 
+//get all books from db
+
+app.get('/books',getbooks);
+function getbooks(req, res) {
+ let SQL='SELECT * from books;';
+ return client.query(SQL)
+  .then(result=>res.render('pages/index',{ bookshelf:result.rows }))
+  .catch(err=>console.error(err));
+}
+
+app.get('/books/:id',getbookinfo);
+function getbookinfo(req, res) {
+  let SQL = 'SELECT * FROM books WHERE id=$1';
+  let values = [ req.params.id ];
+  client.query(SQL, values, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.redirect('/error');
+    } else {
+      res.render('../views/pages/searches/show', {
+       data: result.rows[0]
+      });
+    }
+  });
+}
+
+
+
+
+
 app.post('/search',getsearch);
  
-
 function getsearch(req,res){
   let arr=[];
   const titleURL=`https://www.googleapis.com/books/v1/volumes?q=intitle:${req.body.searchkey}`;
@@ -47,7 +85,7 @@ data.body.items.forEach(book=>{
   arr.push(obj);
 
 });
-res.render('../views/pages/show',{data:arr});
+res.render('../views/pages/searches/show',{data:arr});
 })
 
 
@@ -55,6 +93,9 @@ res.render('../views/pages/show',{data:arr});
 }
 
 
+app.get('*', (req, res) => {
+  res.redirect('/error');
+});
 
 
 

@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <%- include('../layout/head') %>
+  <%- include('.././layout/head') %>
   <body>
-    <%- include('../layout/header') %>
-    <form action="/search" method="POST">
-      <div class="instruction">Search by Title or Author</div>
-      <input class="input" type="text" name="searchkey" placeholder="Enter a title or author"/>
-      <div class="container"><label>Title<input class="radio first" type="radio" name="search" value="title"/></label></div>
-      <div class="container"><label>Author<input class="radio" type="radio" name="search" value="author"/></label></div>
-      <button>Search the Google Books API</button>
-    </form>
-    <%- include('../layout/footer') %>
+   
+    <div class="instruction">Search Results</div>
+    <ul>
+      <% bookshelf.forEach(book=>{ %>
+      <li>
+        <img src="<%=book.image_url%>" alt="" class="logo" />
+        <p>Title is: <%=book.title %></p>
+        <p>Author is: <%=book.author %></p>
+        <p>Isbn is: <%=book.isbn %></p>
+        <p>Description is: <%=book.description %></p>
+        <div class="book-button"><a href="/books/<%= book.id %>">View Details</a></div>
+      </li>
+      <% }) %>
+    
+  
+    </ul>
+   
+
+
+
   </body>
 </html>
