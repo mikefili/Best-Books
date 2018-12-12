@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../.././layout/head') %>
-  <body>
-   
+<head>
+ <title>SHOW LIST</title>
+ <link rel="stylesheet" type="text/css" href="../../../public/styles/layout.css">
+</head>
+<body>
     <ul>
+       <% data.forEach(book=>{ %> 
     
-      <li>
-        <img src="<%=data.image_url%>" alt="" class="logo" />
-        <p>Title is: <%=data.title %></p>
-        <p>Author is: <%=data.author %></p>
-        <p>Isbn is: <%=data.isbn %></p>
-        <p>Description is: <%=data.description %></p>
-        <div class="book-button"><a href="/books/<%= data.id %>/edit">Edit Details</a></div>
+    <li>
+        <img src="<%=book.image_url%>" alt="" class="logo">
+        <p>Title is: <%=book.title %></p> 
+        <p>Author is: <%=book.author %></p>
+        <p>Isbn is: <%=book.isbn %></p>
+        <p>Description is: <%=book.description %></p>  
+    </li>
 
-      </li>
- 
+
+
+   <button type='button' id='formbutton'>form</button>
+
+   <form id='edit'>
+  <label>Enter a title 
+    <input type='' name='enterkey'>
+  </label>
+  <label>Enter a  author
+    <input type='text' name='enterkey'>
+  </label>
+  <label>Enter a url
+    <input type='text' name='enterkey'>
+  </label>
+  <label>description
+    <input type='text' name='enterkey'>
+  </label>
+  <button>Submit</button>
+</form>
+
+  <%  }) %>
     </ul>
-   
-  </body>
+
+
+</body>
+<script src="../../../public/app.js"></script>
 </html>
