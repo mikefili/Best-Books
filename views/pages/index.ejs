@@ -1,35 +1,15 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>Bookshelf</title>
-  <link rel='stylesheet' href='styles/reset.css'>
-  <link rel='stylesheet' href='styles/base.css'>
-</head>
-
-<body>
-  <header>
-    <h1>Best Books!</h1>
-    <img src="/styles/images/hamburger-transparent.png" id="hamb">
-  </header>
-
-  <form action='/search' method="POST">
-    <div class="instruction">
-      Search by Title or Author
-      </div>
-    <label>Enter a title or author
-      <input type='text' name='searchkey'>
-    </label>
-    <label>TITLE
-      <input type='radio' name='search' value="title">
-    </label>
-    <label>AUTHOR
-      <input type='radio' name='search' value="author">
-    </label>
-
-    <button>Search the Google Books API</button>
-  </form>
-
-</body>
-
+    <%- include('../layout/head') %>
+  <body>
+    <%- include('../layout/header') %>
+    <form action="/search" method="POST">
+      <div class="instruction">Search by Title or Author</div>
+      <input class="input" type="text" name="searchkey" placeholder="Enter a title or author"/>
+      <div class="container"><label>Title<input class="radio first" type="radio" name="search" value="title"/></label></div>
+      <div class="container"><label>Author<input class="radio" type="radio" name="search" value="author"/></label></div>
+      <button>Search the Google Books API</button>
+    </form>
+    <%- include('../layout/footer') %>
+  </body>
 </html>
