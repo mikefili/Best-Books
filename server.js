@@ -47,7 +47,7 @@ data.body.items.forEach(book=>{
   arr.push(obj);
 
 });
-res.render('../views/pages/show',{data:arr});
+res.render('../views/pages/searches/show',{data:arr});
 })
 
 
