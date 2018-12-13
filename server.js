@@ -138,10 +138,38 @@ else{
   
  
 
+ app.post('/books/:id',deleteBook);
+ function deleteBook(req, res) {
+    client.query('DELETE FROM books WHERE id = $1', [req.params.id], (err, result) => {
+      res.redirect('/books');
+    });
+  }
+  
+
+app.get('/edit/:id',getForm)
+  function getForm(req, res) {
+    client.query('SELECT * FROM books WHERE id = $1', [req.params.id], (err, result) => {
+      res.render('../views/pages/edit', { data: result.rows[0] });
+    });
+  }
+
+ app.post('/update/:id',editBook);
+  function editBook(req, res) {
+    let SQL = 'UPDATE books SET author=$1,title=$2,isbn=$3,image_url=$4,description=$5 WHERE id=$6';
+    let values = [req.body.author,req.body.title,req.body.isbn,req.body.image_url,req.body.description,req.params.id];
+    client.query(SQL, values, (err, data) => {
+      res.redirect(`/books/${req.params.id}`);
+    });
+  }
+
+
+
+
+
   
 
 
-  
+
 
 app.get('*', (req, res) => {
   res.redirect('/error');
