@@ -20,13 +20,12 @@
     </ul>
 
     <div>
-      <a href="/book/<%= book.id %>/edit">Edit Details</a>
+      <a href="/edit/<%= book.id %>">Edit Details</a>
       <form action="/books/<%= book.id %>" method="POST" class="hidden-form">
         <input type="hidden" name="_method" value="DELETE" />
         <button>Delete the Book</button>
       </form>
     </div>
    
-
   </body>
 </html>

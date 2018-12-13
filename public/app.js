@@ -4,8 +4,8 @@ console.log('runnig');
    
 //     });
 
-$(".formbutton").click(function(){
+// $(".formbutton").click(function(){
  
 
-$('.form1').toggle();
-    });
+// $('.form1').toggle();
+//     });
