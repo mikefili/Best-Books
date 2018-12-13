@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../.././layout/head') %>
-  <body>
-
-   
+<head>
+ <title>SHOW LIST</title>
+ <link rel="stylesheet" type="text/css" href="styles/reset.css">
+ <link rel="stylesheet" type="text/css" href="styles/layout.css">
+</head>
+<body>
     <ul>
+       <% data.forEach(book=>{ %> 
     
-      <li>
-        <img src="<%=data.image_url%>" alt="" class="logo" />
-        <p>Title is: <%=data.title %></p>
-        <p>Author is: <%=data.author %></p>
-        <p>Isbn is: <%=data.isbn %></p>
-        <p>Description is: <%=data.description %></p>
-        <div class="book-button"><a href="/books/<%= data.id %>/edit">Edit Details</a></div>
+    <li>
+        <img src="<%=book.image_url%>" alt="" class="logo">
+        <p>Title is: <%=book.title %></p> 
+        <p>Author is: <%=book.author %></p>
+        <p>Isbn is: <%=book.isbn %></p>
+        <p>Description is: <%=book.description %></p>  
+    </li>
 
-      </li>
- 
+
+   <button type="button" class="formbutton ">Add</button> 
+
+   <form class="form1" action="/books" method="POST">
+    <label>Title
+        <input type='text' name='title' value="">
+       </label>
+  <label> Author
+    <input type='text' name='author' value="">
+  <label>
+  
+<label>Isbn
+  <input type='text' name='isbn' value="">
+</label>URL
+    <input type='text' name='image_url' value="">
+  </label>
+  
+  <label>Description
+    <input type='text' name='description' value="">
+  </label>
+
+  <button type="submit">save</button>
+</form>
+
+  <%  }) %>
     </ul>
 
 
-    </form>
-   
-
-  </body>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script  src="/app.js"></script>
 </html>
