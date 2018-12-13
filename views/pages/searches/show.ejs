@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html>
+<%- include('../.././layout/head') %>
 <body>
+    <%- include('../.././layout/header') %>
     <ul>
        <% data.forEach(book=>{ %> 
     
     <li>
+      <div class="container-xl">
         <img src="<%=book.image_url%>" alt="" class="logo">
         <p>Title is: <%=book.title %></p> 
         <p>Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
-        <p>Description is: <%=book.description %></p>  
+        <p>Description is: <%=book.description %></p>
+      </div>  
     </li>
 
-
+  
    <button type="button" class="formbutton ">Add</button> 
-
+   <div class="container-l">
    <form class="form1" action="/books" method="POST">
-    <label>Title
-        <input type='text' name='title' value="">
-       </label>
-  <label> Author
-    <input type='text' name='author' value="">
-  <label>
-  
-<label>Isbn
-  <input type='text' name='isbn' value="">
-</label>URL
-    <input type='text' name='image_url' value="">
-  </label>
-  
-  <label>Description
-    <input type='text' name='description' value="">
-  </label>
-
+    <label class="category">Title
+      <input type='text' name='title' value="">
+    </label>
+    <label class="category"> Author
+      <input type='text' name='author' value="">
+    </label>
+    <label class="category">ISBN
+      <input type='text' name='isbn' value="">
+    </label>
+    <label class="category">URL
+      <input type='text' name='image_url' value="">
+    </label>
+    <label class="category">Description
+      <input type='text' name='description' value="">
+    </label>
+  </div>
   <button type="submit">save</button>
 </form>
 
   <%  }) %>
     </ul>
 
-
+    <%- include('../.././layout/footer') %>
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script  src="/app.js"></script>

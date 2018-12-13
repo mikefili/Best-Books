@@ -2,9 +2,9 @@
 <html>
   <%- include('.././layout/head') %>
   <body>
+      <%- include('.././layout/header') %>
     <div class="book-button"><a href="/books">Home</a></div>
     <div class="book-button"><a href="/search">Search From Google Api</a></div>
-   
     <div class="instruction">Search Results</div>
     <ul>
       <% bookshelf.forEach(book=>{ %>
@@ -20,6 +20,6 @@
     
   
     </ul>
-  
+    <%- include('.././layout/footer') %>
   </body>
 </html>
