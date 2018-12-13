@@ -111,6 +111,21 @@ input::placeholder {
   margin: 4vw 10vw 4vw 10vw;
 }
 
+.container-l {
+  margin: 5vw 12.5% 8vw 12.5%;
+  width: 75%;
+  height: 100%;
+  background-color: #ccc;
+  color: #999;
+  border-radius: 0.3vw;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 10px #111;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
 .container-xl {
   margin: 5vw 5% 8vw 5%;
   width: 90%;
@@ -155,4 +170,11 @@ input::placeholder {
   color: #333;
   text-align: justify;
   line-height: 2.5vw;
+}
+
+.category {
+  flex-direction: column;
+  width: 40vw;
+  margin: 3vw 15vw 3vw 15vw;
+  line-height: 10vw;
 }

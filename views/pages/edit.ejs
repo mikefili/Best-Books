@@ -4,7 +4,7 @@
 <html lang="en">
     <%- include('.././layout/head') %>
 <body>
- 
+    <%- include('.././layout/header') %>
   <h1>Edit Book Information</h1>
   <form method="POST" action="/update/<%= data.id %>">
    
@@ -31,5 +31,6 @@
       <input type="submit" value="Update Book" />
     </div>
   </form>
+  <%- include('.././layout/footer') %>
 </body>
 </html>
