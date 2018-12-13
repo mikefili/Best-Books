@@ -4,7 +4,8 @@ console.log('runnig');
    
 //     });
 
+$(".formbutton").click(function(){
+ 
 
-    $('.formbutton').click(function() {
-    $(this).nextAll('.form1:lt(1)').toggle();
+$('.form1').toggle();
     });

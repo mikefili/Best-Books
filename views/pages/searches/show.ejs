@@ -2,6 +2,7 @@
 <html>
 <head>
  <title>SHOW LIST</title>
+ <link rel="stylesheet" type="text/css" href="styles/reset.css">
  <link rel="stylesheet" type="text/css" href="styles/layout.css">
 </head>
 <body>
@@ -17,22 +18,27 @@
     </li>
 
 
-   <button type="button" class="formbutton">form</button> 
+   <button type="button" class="formbutton ">Add</button> 
 
-   <form class='form1'>
-  <label>Enter a title 
-    <input type='' name='enterkey'>
+   <form class="form1" action="/books" method="POST">
+    <label>Title
+        <input type='text' name='title' value="">
+       </label>
+  <label> Author
+    <input type='text' name='author' value="">
+  <label>
+  
+<label>Isbn
+  <input type='text' name='isbn' value="">
+</label>URL
+    <input type='text' name='image_url' value="">
   </label>
-  <label>Enter a author
-    <input type='text' name='enterkey'>
+  
+  <label>Description
+    <input type='text' name='description' value="">
   </label>
-  <label>Enter a url
-    <input type='text' name='enterkey'>
-  </label>
-  <label>description
-    <input type='text' name='enterkey'>
-  </label>
-  <button>Submit</button>
+
+  <button type="submit">save</button>
 </form>
 
   <%  }) %>

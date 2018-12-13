@@ -43,13 +43,15 @@ app.get('/books/:id',getbookinfo);
 function getbookinfo(req, res) {
   let SQL = 'SELECT * FROM books WHERE id=$1';
   let values = [ req.params.id ];
-  client.query(SQL, values, (err, result) => {
+  return client.query(SQL, values, (err, result) => {
     if (err) {
       console.error(err);
       res.redirect('/error');
     } else {
       res.render('../views/pages/books/details', {
-       data: result.rows[0]
+       book: result.rows[0],
+       newBook:!!req.query.newBook
+    
       });
     }
   });
@@ -70,7 +72,7 @@ function getsearch(req,res){
   const titleURL=`https://www.googleapis.com/books/v1/volumes?q=intitle:${req.body.searchkey}`;
   const authorURL=`https://www.googleapis.com/books/v1/volumes?q=inauthor:${req.body.searchkey}`;
 
-  if (input.search === 'author'){
+  if (req.body.search === 'author'){
 return superagent.get(authorURL)
   
 .then(data=>{
@@ -117,8 +119,29 @@ res.render('../views/pages/searches/show',{data:arr});
   }
 
 
+app.post('/books',saveBook);
+  function saveBook(req, res) {
+    let SQL = 'INSERT INTO books (author,title,isbn,image_url,description) VALUES ($1,$2,$3,$4,$5) RETURNING id;';
+    let values = [req.body.author,req.body.title,req.body.isbn,req.body.image_url,req.body.description];
+ client.query(SQL, values,(err,result)=>{
+  if (err) {
+    console.error(err);
+    res.redirect('/error');
+  }
+
+else{
+  res.redirect(`/books/${result.rows[0].id}?newBook=true`);
+     }
+ });
+   
+ }    
+  
+ 
+
+  
 
 
+  
 
 app.get('*', (req, res) => {
   res.redirect('/error');
@@ -126,6 +149,6 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(PORT,()=>{
-    console.log(`listening on ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`listening port ${PORT}.`);
 });

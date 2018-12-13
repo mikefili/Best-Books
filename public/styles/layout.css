@@ -9,9 +9,6 @@
   margin:20px;
  
 }
-
-.form1 {
-
-  display:hidden;
-
-  } 
+.form1{
+  display: show;
+}

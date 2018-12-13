@@ -2,24 +2,30 @@
 <html>
   <%- include('../.././layout/head') %>
   <body>
-
+    <% if (newBook) { %>
+      <div class="new-alert">Your Book Has Been Added</div>
+    <% } %>
    
     <ul>
     
       <li>
-        <img src="<%=data.image_url%>" alt="" class="logo" />
-        <p>Title is: <%=data.title %></p>
-        <p>Author is: <%=data.author %></p>
-        <p>Isbn is: <%=data.isbn %></p>
-        <p>Description is: <%=data.description %></p>
-        <div class="book-button"><a href="/books/<%= data.id %>/edit">Edit Details</a></div>
-
+        <img src="<%=book.image_url%>" alt="" class="logo" />
+        <p>Title is: <%=book.title %></p>
+        <p>Author is: <%=book.author %></p>
+        <p>Isbn is: <%=book.isbn %></p>
+        <p>Description is: <%=book.description %></p>
+    
       </li>
  
     </ul>
 
-
-    </form>
+    <div>
+      <a href="/book/<%= book.id %>/edit">Edit Details</a>
+      <form action="/books/<%= book.id %>" method="POST" class="hidden-form">
+        <input type="hidden" name="_method" value="DELETE" />
+        <button>Delete the Book</button>
+      </form>
+    </div>
    
 
   </body>
