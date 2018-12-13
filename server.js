@@ -48,25 +48,12 @@ function getbookinfo(req, res) {
       console.error(err);
       res.redirect('/error');
     } else {
-      res.render('../views/pages/searches/show', {
+      res.render('../views/pages/books/details', {
        data: result.rows[0]
       });
     }
   });
 }
-
-
-
-
-
-// app.get('/books/:id',editbookinfo);
-// function editbookinfo(req, res){
-//     let SQL = 'UPDATE books SET title=$1, author=$2, isbn=$3, image_url=$4, description=$5 WHERE id=$6';
-//     let values = [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, req.params.id];
-//     client.query(SQL, values, ( data) => {
-//       res.redirect(`/books/${req.params.id}`);
-//     });
-//   }
 
 
 
@@ -81,8 +68,11 @@ app.post('/searchapi',getsearch);
 function getsearch(req,res){
   let arr=[];
   const titleURL=`https://www.googleapis.com/books/v1/volumes?q=intitle:${req.body.searchkey}`;
-  console.log(req.body);
-return superagent.get(titleURL)
+  const authorURL=`https://www.googleapis.com/books/v1/volumes?q=inauthor:${req.body.searchkey}`;
+
+  if (input.search === 'author'){
+return superagent.get(authorURL)
+  
 .then(data=>{
   
 data.body.items.forEach(book=>{
@@ -98,12 +88,36 @@ data.body.items.forEach(book=>{
   arr.push(obj);
 
 });
-res.render('../views/pages/books/show',{data:arr});
+res.render('../views/pages/searches/show',{data:arr});
 })
+  }
+
+  else{
+    return superagent.get(titleURL)
+  
+.then(data=>{
+  
+data.body.items.forEach(book=>{
+
+  let obj = {
+    title: book.volumeInfo.title,
+    author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No Author',
+    description: book.volumeInfo.description,
+    isbn: parseInt(book.volumeInfo.industryIdentifiers[0].identifier),
+    image_url: book.volumeInfo.imageLinks.thumbnail
+  };
+
+  arr.push(obj);
+
+});
+res.render('../views/pages/searches/show',{data:arr});
+})
+  }
+
+  }
 
 
 
-}
 
 
 app.get('*', (req, res) => {
