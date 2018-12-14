@@ -1,4 +1,4 @@
-console.log('runnig');
+console.log('running');
 $(document).ready(function(){
 
 $(".formbutton").click(function(){

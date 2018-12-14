@@ -1,15 +1,15 @@
-.formbutton{
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #da1db1;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  margin:20px;
- 
+.formbutton {
+  margin: 3vw 0 0 0;
 }
 
-.form1{
-  display:none;
+.form1 {
+  display: none;
+}
+
+#menu-button {
+  
+}
+
+#hide-nav {
+  display: none;
 }
