@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
+
   <head>
       <link rel="stylesheet" type="text/css" href="/styles/layout.css">
   </head>
+
 <body>
+    <%- include('../.././layout/header') %>
     <ul>
        <% data.forEach(book=>{ %> 
     
     <li>
+      <div class="container-xl">
         <img src="<%=book.image_url%>" alt="" class="logo">
         <p>Title is: <%=book.title %></p> 
         <p>Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
+
         <p>Description is: <%=book.description %></p>  
   
    <button  type="button" class="formbutton " data-id="<%=book.isbn%>">Add</button> 
@@ -35,6 +40,7 @@
     <input type='text' name='description' value="">
   </label>
 
+
   <button type="submit">save</button>
 
 </form>
@@ -46,8 +52,10 @@
 
 
 
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/app.js"></script>
+
 </body>
 
 
