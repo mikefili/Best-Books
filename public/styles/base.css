@@ -50,6 +50,11 @@ header > h1 {
   height: 10vw;
   line-height: 10vw;
   font-size: 3vw;
+  margin-bottom: 3vw;
+}
+
+a .instruction {
+  color: white;
 }
 
 button {
@@ -68,7 +73,12 @@ input {
   color: black;
 }
 
+.edit-field {
+  margin: 1vw 25% 1vw 0;
+}
+
 label {
+  text-align: center;
   margin-left: 5vw;
   line-height: 10vw;
 }
@@ -81,7 +91,7 @@ input::placeholder {
 .radio {
   width: 8vw;
   height: 3vw;
-  margin: 0;
+  margin: 2vw 0 0 0;
   padding: 0;
   background-color: white;
 }
@@ -127,7 +137,7 @@ input::placeholder {
 }
 
 .container-xl {
-  margin: 5vw 5% 8vw 5%;
+  margin: 5vw 5% 5vw 5%;
   width: 90%;
   height: 100%;
   background-color: #ccc;
@@ -138,9 +148,9 @@ input::placeholder {
   box-shadow: 0 0 10px #111;
 }
 
-.container-xl:last-of-type {
+/* .container-xl:last-of-type {
   margin-bottom: 18vw;
-}
+} */
 
 .logo {
   margin: 5vw 0 1vw 0;
@@ -150,6 +160,7 @@ input::placeholder {
 
 .title {
   font-size: 2vw;
+  line-height: 3vw;
   margin: 0 0 1vw 0;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   color: white;
@@ -178,3 +189,18 @@ input::placeholder {
   margin: 3vw 15vw 3vw 15vw;
   line-height: 10vw;
 }
+
+.search {
+  margin: 3vw 0 0 0;
+}
+
+.center {
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+.nav {
+  float: right;
+  margin: 6vw;
+}
+
