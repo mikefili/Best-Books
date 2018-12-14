@@ -17,8 +17,6 @@ const client = new pg.Client(dbaddress);
 client.connect();
 client.on('error', err => console.log(err));
 
-
-
 app.get('/',(req,res)=>{
   // res.render('../views/pages/index');
   res.redirect('/books');

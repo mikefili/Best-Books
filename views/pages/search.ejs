@@ -4,22 +4,18 @@
 <body>
     <%- include('.././layout/header') %>
   <form action='/searchapi' method="POST">
-    <div id="instruction">
-      Search by Title or Author
-      </div>
-    <label>Enter a title or author
-      <input type='text' name='searchkey'>
+    <div class="instruction">Search by Title or Author</div>
+      <input type='text' name='searchkey' placeholder="Enter a title or author">
+    <br>
+      <label class="title">TITLE
+      <input class="radio" type='radio' name='search' value="title">
     </label>
-    <label>TITLE
-      <input type='radio' name='search' value="title">
-    </label>
-    <label>AUTHOR
-      <input type='radio' name='search' value="author">
+    <label class="title">AUTHOR
+      <input class="radio" type='radio' name='search' value="author">
     </label>
 
-    <button>Search the Google Books API</button>
+    <button class="search">Search the Google Books API</button>
   </form>
   <%- include('.././layout/footer') %>
 </body>
-
 </html>
