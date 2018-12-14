@@ -8,5 +8,4 @@ var $toggle=$(this);
 var id="#replycomment-"+$toggle.data('id');
 $(id).toggle();
 });
- 
 });
