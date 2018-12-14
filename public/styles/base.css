@@ -53,7 +53,7 @@ header > h1 {
   margin-bottom: 3vw;
 }
 
-a .instruction {
+.instruction > a {
   color: white;
 }
 
@@ -68,13 +68,19 @@ button {
   color: white;
 }
 
+.addbutton {
+  width: 60%;
+  margin: 1vw 20% 1vw 0;
+  background-color: orangered;
+}
+
 input {
   font-size: 3vw;
   color: black;
 }
 
 .edit-field {
-  margin: 1vw 25% 1vw 0;
+  margin: 1vw 22% 1vw 0;
 }
 
 label {
@@ -125,7 +131,7 @@ input::placeholder {
   margin: 5vw 12.5% 8vw 12.5%;
   width: 75%;
   height: 100%;
-  background-color: #ccc;
+  background-color: #444;
   color: #999;
   border-radius: 0.3vw;
   -moz-box-shadow: 0 0 3px #ccc;

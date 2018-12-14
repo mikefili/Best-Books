@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../.././layout/head') %>
+    <head>
+        <title>Title</title>
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <meta charset="utf-">
+        <link rel='stylesheet' type="text/stylesheet" href='styles/reset.css'>
+        <link rel='stylesheet' type="text/stylesheet" href='styles/base.css'>
+        <link rel="stylesheet" type="text/stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" type="text/stylesheet" href="styles/modules.css">
+        </head>
   <body>
+      <%- include('../../layout/header') %>
     <% if (newBook) { %>
       <div class="new-alert">Your Book Has Been Added</div>
     <% } %>
@@ -23,7 +32,7 @@
       <a href="/edit/<%= book.id %>">Edit Details</a>
       <form action="/books/<%= book.id %>" method="POST" class="hidden-form">
         <input type="hidden" name="_method" value="DELETE" />
-        <button>Delete the Book</button>
+        <button>Delete this book</button>
       </form>
     </div>
    
