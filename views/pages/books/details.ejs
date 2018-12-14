@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title</title>
-        <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <meta charset="utf-">
-        <link rel='stylesheet' type="text/stylesheet" href='styles/reset.css'>
-        <link rel='stylesheet' type="text/stylesheet" href='styles/base.css'>
-        <link rel="stylesheet" type="text/stylesheet" href="styles/layout.css">
-        <link rel="stylesheet" type="text/stylesheet" href="styles/modules.css">
-        </head>
+        <%- include('../.././layout/head') %>
+    </head>
   <body>
-      <%- include('../../layout/header') %>
+      <%- include('../.././layout/header') %>
     <% if (newBook) { %>
-      <div class="new-alert">Your Book Has Been Added</div>
+      <div class="instruction">Your Book Has Been Added</div>
     <% } %>
    
     <ul>
-    
+      <div class="container-xl">
       <li>
         <img src="<%=book.image_url%>" alt="" class="logo" />
-        <p>Title is: <%=book.title %></p>
-        <p>Author is: <%=book.author %></p>
+        <p class="title">Title is: <%=book.title %></p>
+        <p class="author">Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
-        <p>Description is: <%=book.description %></p>
-    
-      </li>
- 
-    </ul>
-
-    <div>
-      <a href="/edit/<%= book.id %>">Edit Details</a>
+        <p class="description">Description is: <%=book.description %></p>
+        <a class="edit" href="/edit/<%= book.id %>">Edit Details</a>
       <form action="/books/<%= book.id %>" method="POST" class="hidden-form">
         <input type="hidden" name="_method" value="DELETE" />
         <button>Delete this book</button>
       </form>
+      </li>
+     </ul>
     </div>
-   
+  </div> 
   </body>
 </html>
