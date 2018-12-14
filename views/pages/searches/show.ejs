@@ -8,7 +8,7 @@
 <body>
     <%- include('../.././layout/header') %>
     <ul>
-       <% data.forEach(book=>{ %> 
+       <% data.forEach((book,uid)=>{ %> 
     
     <li>
       <div class="container-xl">
@@ -19,9 +19,9 @@
 
         <p>Description is: <%=book.description %></p>  
   
-   <button  type="button" class="formbutton " data-id="<%=book.isbn%>">Add</button> 
+   <button  type="button" class="formbutton " data-id="<%=uid%>">Add</button> 
 
-   <form class="form1"  id="replycomment-<%=book.isbn %>" action="/books" method="POST" >
+   <form class="form1"  id="replycomment-<%=uid %>" action="/books" method="POST" >
     
     <label>Title
         <input type='text' name='title' value="">
