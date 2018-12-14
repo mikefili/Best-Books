@@ -1,4 +1,4 @@
-/* .formbutton{
+.formbutton{
   border-radius: 28px;
   font-family: Arial;
   color: #ffffff;
@@ -9,6 +9,7 @@
   margin:20px;
  
 }
+
 .form1{
-  display: show;
-} */
+  display:none;
+}
