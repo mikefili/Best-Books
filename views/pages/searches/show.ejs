@@ -19,27 +19,16 @@
 
         <p>Description is: <%=book.description %></p>  
   
-   <button  type="button" class="formbutton " data-id="<%=book.isbn%>">Add</button> 
-
-   <form class="form1"  id="replycomment-<%=book.isbn %>" action="/books" method="POST" >
-    
-    <label>Title
-        <input type='text' name='title' value="">
-       </label>
-  <label> Author
-    <input type='text' name='author' value="">
-  <label>
-  
-<label>Isbn
-  <input type='text' name='isbn' value="">
-</label>URL
-    <input type='text' name='image_url' value="">
-  </label>
-  
-  <label>Description
-    <input type='text' name='description' value="">
-  </label>
-
+   <button type="button" class="formbutton">Add</button> 
+   <div class="container-l">
+   <form class="form1" action="/books" method="POST">
+      <div class="center title">Edit book information:</div>
+      <input class="edit-field" type='text' name='title' value="" placeholder="Title">
+      <input class="edit-field" type='text' name='author' value="" placeholder="Author">
+      <input class="edit-field" type='text' name='isbn' value="" placeholder="ISBN">
+      <input class="edit-field" type='text' name='image_url' value="" placeholder="URL">
+      <input class="edit-field" type='text' name='description' value="" placeholder="Description">
+  </div>
 
   <button type="submit">save</button>
 
@@ -57,7 +46,5 @@
     <script type="text/javascript" src="/app.js"></script>
 
 </body>
-
-
 
 </html>
