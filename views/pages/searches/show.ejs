@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/styles/layout.css">
+  </head>
 <body>
     <ul>
        <% data.forEach(book=>{ %> 
@@ -10,12 +13,11 @@
         <p>Author is: <%=book.author %></p>
         <p>Isbn is: <%=book.isbn %></p>
         <p>Description is: <%=book.description %></p>  
-    </li>
+  
+   <button  type="button" class="formbutton " data-id="<%=book.isbn%>">Add</button> 
 
-
-   <button type="button" class="formbutton ">Add</button> 
-
-   <form class="form1" action="/books" method="POST">
+   <form class="form1"  id="replycomment-<%=book.isbn %>" action="/books" method="POST" >
+    
     <label>Title
         <input type='text' name='title' value="">
        </label>
@@ -34,13 +36,20 @@
   </label>
 
   <button type="submit">save</button>
+
 </form>
 
+</li>
   <%  }) %>
     </ul>
 
 
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script  src="/app.js"></script>
+
+
+
 </html>

@@ -1,11 +1,12 @@
 console.log('runnig');
-// $(".formbutton").click(function(){
-//  $('.form1').toggle();
-   
-//     });
+$(document).ready(function(){
 
-// $(".formbutton").click(function(){
+$(".formbutton").click(function(){
+
+var $toggle=$(this);
+
+var id="#replycomment-"+$toggle.data('id');
+$(id).toggle();
+});
  
-
-// $('.form1').toggle();
-//     });
+});
