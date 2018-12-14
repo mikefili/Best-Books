@@ -225,3 +225,8 @@ input::placeholder {
   width: 50%;
   margin: 1vw 22% 1vw 0;
 }
+
+.bump {
+  margin: 0 0 3vw 0;
+  height: 5vw;
+}
