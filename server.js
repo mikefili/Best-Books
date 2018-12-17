@@ -67,7 +67,7 @@ app.post('/searchapi',getsearch);
  
 function getsearch(req,res){
   let arr=[];
-  const titleURL=`https://www.googleapis.com/books/v1/volumes?q=intitle:${req.body.searchkey}`;
+  const titleURL=`https://api.finder.healthcare.gov/v3.0/getIFPPlanQuotes`;
   const authorURL=`https://www.googleapis.com/books/v1/volumes?q=inauthor:${req.body.searchkey}`;
 
   if (req.body.search === 'author'){
