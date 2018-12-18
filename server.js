@@ -74,7 +74,7 @@ function getsearch(req,res){
 return superagent.get(authorURL)
   
 .then(data=>{
-  
+ 
 data.body.items.forEach(book=>{
 
   let obj = {
@@ -88,8 +88,10 @@ data.body.items.forEach(book=>{
   arr.push(obj);
 
 });
+
 res.render('../views/pages/searches/show',{data:arr});
 })
+.catch(err=>console.error(err));
   }
 
   else{
